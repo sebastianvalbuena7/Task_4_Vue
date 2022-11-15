@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="shortcut icon" href="./assets/img/Logo_Amazing_Events.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+<body>
+    <header class="container-fluid bg-dark flex-header">
+        <a href="./index.html"><img class="w-100 logo" src="./assets/img/Logo_Amazing_Events.png" alt="Logo Amazing Events"></a>
+        <nav class="navbar navbar-expand-lg pb-3">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-1 color-ico"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a href="./index.html" class="btn text-decoration-none text-light hover-nav">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./upcomingEvents.html" class="btn text-decoration-none text-light hover-nav">Upcoming Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./pastEvents.html" class="btn text-decoration-none text-light hover-nav">Past Events</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" id="active" class="btn text-decoration-none text-light hover-nav">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="./stats.html" class="btn text-decoration-none text-light hover-nav">Stats</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+      </header>
+
+    <main class="height-contact">
+        <div class="text-light height-h1 bg-secondary py-2">
+            <h1 class="text-center">Contact Us</h1>
+        </div>
+
+        <form class="d-flex flex-column align-items-center p-5 height-form">
+            <fieldset class="d-flex flex-column width-form mb-5">
+                <label class="fs-5 fw-bold" for="fname">Name:</label>
+                <input class="h-100" id="fname" type="text">
+            </fieldset>
+
+            <fieldset class="d-flex flex-column width-form mb-5">
+                <label class="fs-5 fw-bold" for="femail">Email:</label>
+                <input class="h-100" id="femail" type="email">
+            </fieldset>
+
+            <fieldset class="d-flex flex-column width-form mb-5">
+                <label class="fs-5 fw-bold" for="fmessage">Message:</label>
+                <input class="h-100" id="fmessage" type="text">
+            </fieldset>
+            <input class="btn text-light button-cards my-4" id="form-submit" type="submit" value="Submit">
+        </form>
+    </main>
+
+    <footer class="container-fluid bg-dark d-flex justify-content-around align-items-center pt-2 vh-footer">
+        <nav class="d-flex gap-3">
+            <a href="#"><i class="bi bi-whatsapp text-light hover-nav"></i></a>
+            <a href="#"><i class="bi bi-facebook text-light hover-nav"></i></a>
+            <a href="#"><i class="bi bi-instagram text-light hover-nav"></i></a>
+        </nav>
+        <div>
+            <h2 class="mb-0 text-light fs-3">Cohort 37</h2>
+        </div>
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

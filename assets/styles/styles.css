@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-width {
+    width: 80vw;
+}
+
+.button-cards {
+    background-color: rgb(217, 3, 104);
+}
+
+.button-cards:hover {
+    background-color: rgb(146, 1, 69);
+}
+
+.vh-footer {
+    height: 8vh;
+}
+
+.hover-nav:hover {
+    color: rgb(217, 3, 104) !important;
+}
+
+#active {
+    color: rgb(217, 3, 104) !important;
+}
+
+.width-form {
+    width: 20rem;
+}
+
+.img-information {
+    width: 25rem;
+}
+
+.color-ico {
+    color: rgb(217, 3, 104);
+}
+
+table, td, td {
+    border: 1px solid black;
+}
+
+.height-img {
+    height: 27vh;
+}
+
+.card-body {
+    height: 14rem !important;
+}
+
+.height-contact {
+    height: 130vh;
+}
+
+.main-information {
+    height: 85vh;
+}
+
+@media (min-width: 630px) {
+    .card-width {
+        width: 20rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo {
+        width: 10rem !important;
+    }
+    .flex-nav {
+        flex-direction: row !important;
+        padding-top: 1rem;
+    }
+    .flex-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .container-checks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-information {
+        width: 40rem;
+    }
+    .checks {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .height-information {
+        flex-direction: row !important;
+    }
+    .table-width {
+        width: 75% !important;
+    }
+    .card-width {
+        width: 20.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+    .height-form {
+        height: 80vh;
+    }
+    .height-information {
+        height: 80vh;
+    }
+}
+
+@media (min-width: 1367px) {
+    h1 {
+        height: 3rem;
+        font-size: 2rem !important;
+    }
+    .height-h1 {
+        height: 4rem !important;
+    }
+    .card-width {
+        width: 22.4rem;
+    }
+    header {
+        height: 10vh;
+    }
+    main {
+        height: auto;
+    }
+    .cards-home {
+        height: auto;
+    }
+    .height-pag {
+        height: auto;
+    }
+    .height-contact {
+        height: 85vh;
+    }
+    footer {
+        height: 18vh !important;
+    }
+    .height-information {
+        display: flex;
+        margin: 3rem;
+        margin-top: 7rem;
+    }
+}

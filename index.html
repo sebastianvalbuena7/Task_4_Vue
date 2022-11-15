@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Events</title>
+    <link rel="shortcut icon" href="./assets/img/Logo_Amazing_Events.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+<body>
+  <header class="container-fluid bg-dark flex-header">
+    <a href="./index.html"><img class="w-100 logo" src="./assets/img/Logo_Amazing_Events.png" alt="Logo Amazing Events"></a>
+    <nav class="navbar navbar-expand-lg pb-3">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-list fs-1 color-ico"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="#" id="active" class="btn text-decoration-none text-light hover-nav">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="./upcomingEvents.html" class="btn text-decoration-none text-light hover-nav">Upcoming Events</a>
+              </li>
+              <li class="nav-item">
+                <a href="./pastEvents.html" class="btn text-decoration-none text-light hover-nav">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a href="./contact.html" class="btn text-decoration-none text-light hover-nav">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a href="./stats.html" class="btn text-decoration-none text-light hover-nav">Stats</a> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
+
+    <main>
+        <div class="text-light height-h1 bg-secondary py-2">
+            <h1 class="text-center">Home</h1>
+        </div>
+
+        <div id="content">
+          {{filterAll}}
+          <div class="container-checks">
+            <div class="d-flex flex-column align-items-start checks gap-1 py-3">
+              <template v-for="category of categories">
+                <label class="btn">
+                  <input class="me-2" type="checkbox" :value="category" v-model="checked"> 
+                  {{category}}
+                </label>
+              </template>
+            </div>
+
+            <div class="d-flex">
+                <input class="form-control mx-2 my-3" id="search" type="search" placeholder="Search" v-model="inputText">
+            </div>
+          </div>
+
+          <article id="articleCards" class="py-4 d-flex flex-wrap gap-3 justify-content-around cards-home">
+            <div class="card card-width card-width me-auto ms-auto d-block mb-4 bg-dark" v-for="evento of dataFilters">
+              <img :src="evento.image" class="card-img-top height-img" :alt="evento.name">
+              <div class="card-body">
+                  <h5 class="card-title text-center text-light mb-3">{{evento.name}}</h5>
+                  <p class="card-text text-light mb-1">{{evento.description}}</p>
+                  <p style="display:none">{{evento.category}}</p>
+                  <div class="d-flex justify-content-around mb-1 mt-3">
+                      <a href="#" class="btn text-light">Price $ {{evento.price}}</a>
+                      <a :href="'./information.html?id=' + evento._id" class="btn text-light button-cards">Details</a>
+                  </div>
+              </div>
+            </div>
+          </article>
+        </div>
+    </main>
+
+    <footer class="container-fluid bg-dark d-flex justify-content-around align-items-center pt-2 vh-footer">
+        <nav class="d-flex gap-3">
+            <a href="#"><i class="bi bi-whatsapp text-light hover-nav"></i></a>
+            <a href="#"><i class="bi bi-facebook text-light hover-nav"></i></a>
+            <a href="#"><i class="bi bi-instagram text-light hover-nav"></i></a>
+        </nav>
+        <div>
+            <h2 class="mb-0 text-light fs-3">Cohort 37</h2>
+        </div>
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
