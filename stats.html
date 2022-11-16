@@ -45,9 +45,8 @@
         <div class="text-light height-h1 bg-secondary py-2">
             <h1 class="text-center">Stats</h1>
         </div>
-
+        <div id="content">
         <table class="table table-dark table-responsive table-width mt-5 my-2 w-25 m-auto">
-            <div id="content">
                 <tbody>
                     <tr>
                         <td colspan="3">Events Statistics</td>
@@ -57,10 +56,17 @@
                         <td class="table-secondary">Event with the lowest percentage of attendance</td>
                         <td class="table-secondary">Event with larger capacity</td>
                     </tr>
-    
-                    <tr id="tr-highest">
-                        <td>Name: <span class="fw-bold">${property.name}</span></td>
-                    </tr>
+                    <td class="table-secondary" v-for="event of compareData">
+                        <p class="pt-2">{{event.name}}</p>
+                    </td>
+
+                    <td class="table-secondary" v-for="event of compareData2">
+                        <p class="pt-2">{{event.name}}</p>
+                    </td>
+
+                    <td class="table-secondary" v-for="event of compareData3">
+                        <p class="pt-2">{{event.name}}</p>
+                    </td>
                 </tbody>
                     
                     <tr>
@@ -73,13 +79,19 @@
                         <td class="table-secondary">Percentage of attendance</td>
                     </tr>
                     <tbody>
-                        <tr>
-                            <td class="table-secondary" id="tr-categoryUpcoming">
-    
-                            </td>
-                            <td class="table-secondary" id="tr-categoryUpcomingRevenues"></td>
-                            <td class="table-secondary" id="tr-categoryUpcomingAttendance"></td>
-                        </tr>
+                        <template v-for="event of arrayUpcoming">
+                            <tr>
+                                <td class="table-secondary">
+                                    <p>{{event.name}}</p> 
+                                </td>
+                                <td class="table-secondary">
+                                    <p>{{event.revenues}}</p> 
+                                </td>
+                                <td class="table-secondary">
+                                    <p>{{event.assistance || event.estimate}}%</p> 
+                                </td>
+                            </tr>
+                        </template>
                     </tbody>
     
                     <tr>
@@ -93,15 +105,23 @@
                     </tr>
     
                     <tbody>
-                        <tr>
-                            <td class="table-secondary" id="tr-categoryPast"></td>
-                            <td class="table-secondary" id="tr-categoryPastRevenues"></td>
-                            <td class="table-secondary" id="tr-categoryPastAttendance"></td>
-                        </tr>
+                        <template v-for="event of arrayPast">
+                            <tr>
+                                <td class="table-secondary">
+                                    <p>{{event.name}}</p> 
+                                </td>
+                                <td class="table-secondary">
+                                    <p>{{event.revenues}}</p> 
+                                </td>
+                                <td class="table-secondary">
+                                    <p>{{event.assistance || event.estimate}}%</p> 
+                                </td>
+                            </tr>
+                        </template>
                     </tbody>
                 </tbody>
-            </div>
         </table>
+    </div>
     </main>
     
     <footer class="container-fluid bg-dark d-flex justify-content-around align-items-center pt-2 vh-footer">

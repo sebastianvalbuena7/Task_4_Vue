@@ -8,7 +8,7 @@ const app = createApp( {
             dataFilters: [],
             categories: [],
             checked: [],
-            inputText: ''
+            inputText: '',
         }
     },
     created() {
