@@ -5,6 +5,7 @@ const app = createApp( {
         return {
             eventsData: [],
             data: [],
+            card: [],
             date: undefined,
             name: undefined,
             description: undefined,
