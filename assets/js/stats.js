@@ -34,7 +34,7 @@ const app = createApp( {
             this.createUpcoming()
             this.createPast()
         })
-        // .catch(error => console.error(error))
+        .catch(error => console.error(error))
     },
     methods: {
         highestAttendance() {
