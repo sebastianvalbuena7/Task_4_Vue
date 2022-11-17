@@ -6,9 +6,6 @@ const app = createApp( {
             eventsData: [],
             data: [],
             date: '',
-            filterAssistance: [],
-            filterAssistance2: [],
-            filterAssistance3: [],
             compareData: [],
             compareData2: [],
             compareData3: [],
@@ -41,25 +38,25 @@ const app = createApp( {
     },
     methods: {
         highestAttendance() {
-            this.filterAssistance = this.data.filter(property => property.assistance).map(property => {
-                this.array = {
+            let filterAssistance = this.data.filter(property => property.assistance).map(property => {
+                let array = {
                     name: property.name,
                     assistance: parseInt(property.assistance),
                     capacity: parseInt(property.capacity)
                 }
-                return this.array
+                return array
             }).map(elem => {
-                this.array = {
+                array = {
                     name: elem.name,
                     value: Math.trunc(elem.assistance * 100 / elem.capacity)
                 }
-                return this.array
+                return array
             })
-            let accessValue = this.filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.max(a, b))
-            this.compareData = this.filterAssistance.filter(property => property.value == accessValue)
+            let accessValue = filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.max(a, b))
+            this.compareData = filterAssistance.filter(property => property.value == accessValue)
         },
         lowestAttendance() {
-            this.filterAssistance2 = this.data.filter(property => property.assistance).map(property => {
+            let filterAssistance = this.data.filter(property => property.assistance).map(property => {
                 this.array2 = {
                     name: property.name,
                     assistance: parseInt(property.assistance),
@@ -73,12 +70,12 @@ const app = createApp( {
                 }
                 return this.array2
             })
-            let accessValue = this.filterAssistance2.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.min(a, b))
-            this.compareData2 = this.filterAssistance2.filter(property => property.value == accessValue)
+            let accessValue = filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.min(a, b))
+            this.compareData2 = filterAssistance.filter(property => property.value == accessValue)
         },
         largerCapacity() {
-            this.filterAssistance3 = this.data.filter(property => property.capacity)
-            this.highAttendance = this.filterAssistance3.map(property => parseInt(property.capacity))
+            let filterAssistance = this.data.filter(property => property.capacity)
+            this.highAttendance = filterAssistance.map(property => parseInt(property.capacity))
             let lCapacity = this.highAttendance.reduce((previous, current) => {
                 return Math.max(previous, current)
             }, 0)
@@ -91,7 +88,7 @@ const app = createApp( {
                 let totals = porcentaje.reduce((a, b) => a + b)
                 let averageAssistance = totals/porcentaje.length
                 let ingresos = eventsCategory.map(event => event.estimate * event.price).reduce((a, b) => a + b)
-                category = {
+                let category = {
                     name: property,
                     estimate: averageAssistance.toFixed(0),
                     revenues: ingresos
@@ -106,7 +103,7 @@ const app = createApp( {
                 let totals = porcentaje.reduce((a, b) => a + b)
                 let averageAssistance = totals/porcentaje.length
                 let ingresos = eventsCategory.map(event => event.assistance * event.price).reduce((a, b) => a + b)
-                category = {
+                let category = {
                     name: property,
                     estimate: averageAssistance.toFixed(0),
                     revenues: ingresos
