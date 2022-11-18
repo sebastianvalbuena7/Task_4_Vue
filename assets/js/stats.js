@@ -46,7 +46,7 @@ const app = createApp( {
                 }
                 return array
             }).map(elem => {
-                array = {
+                let array = {
                     name: elem.name,
                     value: Math.trunc(elem.assistance * 100 / elem.capacity)
                 }
@@ -57,26 +57,26 @@ const app = createApp( {
         },
         lowestAttendance() {
             let filterAssistance = this.data.filter(property => property.assistance).map(property => {
-                this.array2 = {
+                let array = {
                     name: property.name,
                     assistance: parseInt(property.assistance),
                     capacity: parseInt(property.capacity)
                 }
-                return this.array2
+                return array
             }).map(elem => {
-                this.array2 = {
+                let array = {
                     name: elem.name,
                     value: Math.trunc(elem.assistance * 100 / elem.capacity)
                 }
-                return this.array2
+                return array
             })
             let accessValue = filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.min(a, b))
             this.compareData2 = filterAssistance.filter(property => property.value == accessValue)
         },
         largerCapacity() {
             let filterAssistance = this.data.filter(property => property.capacity)
-            this.highAttendance = filterAssistance.map(property => parseInt(property.capacity))
-            let lCapacity = this.highAttendance.reduce((previous, current) => {
+            let highAttendance = filterAssistance.map(property => parseInt(property.capacity))
+            let lCapacity = highAttendance.reduce((previous, current) => {
                 return Math.max(previous, current)
             }, 0)
             this.compareData3 = this.data.filter(property => parseInt(property.capacity) == lCapacity)
@@ -94,6 +94,7 @@ const app = createApp( {
                     revenues: ingresos
                 }
                 this.arrayUpcoming.push(category)
+                console.log(this.arrayUpcoming)
             })
         },
         createPast() {
