@@ -24,8 +24,8 @@ const app = createApp( {
             this.eventsData = datos
             this.data = this.eventsData.events
             this.date = this.eventsData.currentDate
-            this.pastEvents = this.data.filter(event => event.date < this.eventsData.currentDate)
-            this.upcomingEvents = this.data.filter(event => event.date > this.eventsData.currentDate)
+            this.pastEvents = this.data.filter(event => event.date < this.date)
+            this.upcomingEvents = this.data.filter(event => event.date > this.date)
             this.upcomingCategories = Array.from(new Set(this.upcomingEvents.map(event => event.category)))
             this.pastCategories = Array.from(new Set(this.pastEvents.map(event => event.category)))
             this.highestAttendance()
@@ -52,8 +52,8 @@ const app = createApp( {
                 }
                 return array
             })
-            let accessValue = filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.max(a, b))
-            this.compareData = filterAssistance.filter(property => property.value == accessValue)
+            let accessValue = filterAssistance.map(property => property.value).reduce((a, b) => Math.max(a, b))
+            this.compareData = filterAssistance.filter(property => property.value === accessValue)
         },
         lowestAttendance() {
             let filterAssistance = this.data.filter(property => property.assistance).map(property => {
@@ -70,15 +70,12 @@ const app = createApp( {
                 }
                 return array
             })
-            let accessValue = filterAssistance.filter(property => property.value).map(property => property.value).reduce((a, b) => Math.min(a, b))
+            let accessValue = filterAssistance.map(property => property.value).reduce((a, b) => Math.min(a, b))
             this.compareData2 = filterAssistance.filter(property => property.value == accessValue)
         },
         largerCapacity() {
-            let filterAssistance = this.data.filter(property => property.capacity)
-            let highAttendance = filterAssistance.map(property => parseInt(property.capacity))
-            let lCapacity = highAttendance.reduce((previous, current) => {
-                return Math.max(previous, current)
-            }, 0)
+            let highAttendance =  this.data.map(property => parseInt(property.capacity))
+            let lCapacity = highAttendance.reduce((a, b) => Math.max(a,b))
             this.compareData3 = this.data.filter(property => parseInt(property.capacity) == lCapacity)
         },
         createUpcoming() {
@@ -94,7 +91,6 @@ const app = createApp( {
                     revenues: ingresos
                 }
                 this.arrayUpcoming.push(category)
-                console.log(this.arrayUpcoming)
             })
         },
         createPast() {

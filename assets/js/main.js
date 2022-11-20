@@ -17,17 +17,13 @@ const app = createApp( {
         .then(datos => {
             this.eventsData = datos
             this.data = this.eventsData.events
-            this.dataFilters = this.data
             this.dataCheckbox()
         })
         .catch(error => console.error(error))
     },
     methods: {
         dataCheckbox() {
-            this.categories = [... new Set(this.data.filter( event => event.category ).map( event => event.category ))]
-        },
-        search() {
-            this.dataFilters = this.data.filter( event => event.name.toLowerCase().trim().includes( this.inputText.toLowerCase().trim()))
+            this.categories = [... new Set(this.data.map( event => event.category ))]
         }
     },
     computed: {
