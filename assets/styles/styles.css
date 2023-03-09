@@ -33,7 +33,7 @@
 }
 
 .img-information {
-    width: 25rem;
+    width: 25rem !important;
 }
 
 .color-ico {
@@ -58,6 +58,15 @@ table, td, td {
 
 .main-information {
     height: 85vh;
+}
+
+.footer-height {
+    min-height: 32vh !important;
+}
+
+.alert-height {
+    margin-top: 6rem;
+    min-height: 29vh;
 }
 
 @media (min-width: 630px) {

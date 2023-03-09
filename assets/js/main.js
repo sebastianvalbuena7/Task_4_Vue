@@ -12,14 +12,9 @@ const app = createApp( {
         }
     },
     created() {
-        fetch("https://amazing-events.herokuapp.com/api/events")
-        .then(response => response.json())
-        .then(datos => {
-            this.eventsData = datos
+            this.eventsData = eventos
             this.data = this.eventsData.events
             this.dataCheckbox()
-        })
-        .catch(error => console.error(error))
     },
     methods: {
         dataCheckbox() {

@@ -1,6 +1,6 @@
-const {createApp} = Vue
+const { createApp } = Vue
 
-const app = createApp( {
+const app = createApp({
     data() {
         return {
             eventsData: [],
@@ -18,31 +18,27 @@ const app = createApp( {
         }
     },
     created() {
-        fetch("https://amazing-events.herokuapp.com/api/events")
-        .then(response => response.json())
-        .then(datos => {
-            this.eventsData = datos
-            this.data = this.eventsData.events
-            this.date = this.eventsData.currentDate
-            this.detail()
-        })
-        .catch(error => console.error(error))
+        this.eventsData = eventos
+        this.data = this.eventsData.events
+        this.date = this.eventsData.currentDate
+        this.detail()
     },
     methods: {
         detail() {
             const params = new URLSearchParams(location.search)
             const id = params.get('id')
-            this.card = this.data.find(cards => cards._id === id)
-            this.name = this.card.name
-            this.date = this.card.date
-            this.description = this.card.description
-            this.place = this.card.place
-            this.capacity = this.card.capacity
-            this.assistance = this.card.assistance
-            this.estimate = this.card.estimate
-            this.image = this.card.image
+            this.card = this.data.filter(cards => cards._id == id)
+            const { name, date, description, place, capacity, assistance, estimate, image } = this.card[0]
+            this.name = name
+            this.date = date
+            this.description = description
+            this.place = place
+            this.capacity = capacity
+            this.assistance = assistance
+            this.estimate = estimate
+            this.image = image
         }
     }
-} )
+})
 
 app.mount('#content')

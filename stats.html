@@ -56,16 +56,16 @@
                         <td class="table-secondary">Event with the lowest percentage of attendance</td>
                         <td class="table-secondary">Event with larger capacity</td>
                     </tr>
-                    <td class="table-secondary" v-for="event of compareData">
-                        <p class="pt-2">{{event.name}}</p>
+                    <td class="table-secondary">
+                        <p class="pt-2">{{compareData.name}}</p>
                     </td>
 
                     <td class="table-secondary" v-for="event of compareData2">
                         <p class="pt-2">{{event.name}}</p>
                     </td>
 
-                    <td class="table-secondary" v-for="event of compareData3">
-                        <p class="pt-2">{{event.name}}</p>
+                    <td class="table-secondary">
+                        <p class="pt-2">{{compareData3.name}}</p>
                     </td>
                 </tbody>
                     
@@ -137,6 +137,7 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/api/api.js"></script>
     <script src="./assets/js/stats.js"></script>
 </body>
 </html>
